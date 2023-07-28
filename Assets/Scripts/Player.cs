@@ -15,7 +15,7 @@ public class Player : Agent
     protected Rigidbody2D collidingRBCached;
 
     private int playerHP = 5;
-    private int playerKnockBackStrength = 10;
+    private int playerKnockBackStrength = 30;
 
     private float moveForce;
     private float playerHitStun = .1f;
