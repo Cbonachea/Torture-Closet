@@ -61,9 +61,9 @@ public class GameEvents : MonoBehaviour
     }       
     public void LevelUp()
     {
-        if (onTakeDamage != null)
+        if (onLevelUp != null)
         {
-            onTakeDamage();
+            onLevelUp();
         }
     }    
     public void Die()

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.SceneManagement;
 
 public abstract class Agent : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public abstract class Agent : MonoBehaviour
     private bool canDie = true;
     private bool isKnockedBack;
     private bool canChase;
+    private float resetDelay = 4f;
 
     protected bool coroutineStarted;
 
@@ -100,8 +102,20 @@ public abstract class Agent : MonoBehaviour
         if(tag == "Player")
         {
             GameEvents.current.Die();
+            StartCoroutine(LevelResetDelay());
         }
         Destroy(gameObject);
+    }
+
+    private void ReLoadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator LevelResetDelay()
+    {
+        yield return new WaitForSeconds(resetDelay);
+        ReLoadScene();
     }
 
     protected void DebugLogKnockBackVars()
