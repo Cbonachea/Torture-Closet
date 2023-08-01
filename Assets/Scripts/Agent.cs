@@ -102,20 +102,8 @@ public abstract class Agent : MonoBehaviour
         if(tag == "Player")
         {
             GameEvents.current.Die();
-            StartCoroutine(LevelResetDelay());
         }
         Destroy(gameObject);
-    }
-
-    private void ReLoadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    IEnumerator LevelResetDelay()
-    {
-        yield return new WaitForSeconds(resetDelay);
-        ReLoadScene();
     }
 
     protected void DebugLogKnockBackVars()

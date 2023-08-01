@@ -9,9 +9,13 @@ public class ResetGame : MonoBehaviour
     private float resetDelay = 4f;
     private bool startLevelResetDelay;
 
+    private void Start()
+    {
+        SubscribeGameEvents();
+    }
     private void SubscribeGameEvents()
     {
-        GameEvents.current.Die += StartLevelResetDelay;
+        GameEvents.current.onDie += StartLevelResetDelay;
     }
     private void StartLevelResetDelay()
     {
@@ -37,6 +41,6 @@ public class ResetGame : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameEvents.current.Die -= StartLevelResetDelay;
+        GameEvents.current.onDie -= StartLevelResetDelay;
     }
 }

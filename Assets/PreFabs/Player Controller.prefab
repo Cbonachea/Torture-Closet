@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 403653059568793689}
   - component: {fileID: 403653059568793688}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Weapon Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
